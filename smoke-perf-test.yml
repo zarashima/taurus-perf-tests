@@ -1,0 +1,16 @@
+execution:
+- concurrency: 30
+  ramp-up: 30s
+  hold-for: 1s
+  scenario: smoke-test
+
+scenarios:
+  smoke-test:
+    requests:
+      - https://another-nodejs-shopping-cart.herokuapp.com/
+
+reporting:
+- module: passfail
+  criteria:
+  - p95<1500ms, stop as failed
+  - rc4??>20% for 1m, continue as failed

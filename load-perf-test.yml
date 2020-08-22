@@ -1,0 +1,20 @@
+execution:
+- concurrency: 200
+  ramp-up: 10s
+  hold-for: 30s
+  scenario: load-test
+
+scenarios:
+  load-test:
+    requests:
+      - https://another-nodejs-shopping-cart.herokuapp.com/
+
+reporting:
+- module: passfail
+  criteria:
+  - p95<1500ms, stop as failed
+  - rc4??>20% for 1m, continue as failed
+
+modules:
+  local:
+    sequential: true

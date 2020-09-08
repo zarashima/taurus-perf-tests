@@ -1,7 +1,7 @@
 execution:
 - concurrency: 30
-  ramp-up: 30s
-  hold-for: 1s
+  ramp-up: 10s
+  hold-for: 10s
   scenario: smoke-test
 
 scenarios:
@@ -9,8 +9,20 @@ scenarios:
     requests:
       - https://another-nodejs-shopping-cart.herokuapp.com/
 
+modules:
+  blazemeter:
+    token: e84cf576a5341750fddf1c32:4179b3afec065e9670abbb227da496b5c0ad13c140c083226ed32850d23466ea85607d7d      
+
 reporting:
 - module: passfail
   criteria:
   - p95<1500ms, stop as failed
-  - rc4??>20% for 1m, continue as failed
+  - rc4??>20% for 1m, stop as failed
+  - avg-rc>1000ms, stop as failed
+
+- module: blazemeter
+  test: Taurus Demo
+  project: Taurus Tests Group
+  upload-artifacts: true  # upload artifacts when test is finished  
+
+

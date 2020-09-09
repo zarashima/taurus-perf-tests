@@ -18,7 +18,6 @@ reporting:
   criteria:
   - p95<1500ms, stop as failed
   - rc4??>20% for 1m, stop as failed
-  - avg-rc>1000ms, stop as failed
 
 - module: blazemeter
   report-name: Jenkins Build 1

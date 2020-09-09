@@ -21,6 +21,7 @@ reporting:
   - avg-rc>1000ms, stop as failed
 
 - module: blazemeter
+  report-name: Jenkins Build 1
   test: Taurus Demo
   project: Taurus Tests Group
   upload-artifacts: true  # upload artifacts when test is finished  

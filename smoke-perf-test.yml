@@ -7,7 +7,7 @@ execution:
 scenarios:
   smoke-test:
     requests:
-      - https://another-nodejs-shopping-cart.herokuapp.com/
+      - https://www.demoblaze.com/
 
 modules:
   blazemeter:
